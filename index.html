@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aadi Somaiya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .perspective {
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .card-inner.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 1.5rem;
+        }
+
+        .card-face-front,
+        .card-face-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+        }
+
+        .card-face-front {
+            background: #000;
+            border: 2px solid #8f5eff;
+            box-shadow: 0 0 20px rgba(143, 94, 255, 0.8),
+                0 0 40px rgba(143, 94, 255, 0.6),
+                0 0 60px rgba(143, 94, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8f5eff;
+        }
+
+        .card-face-back {
+            background: #0b1622;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border-radius: 20px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .flipped:hover .card-face-back {
+            box-shadow: 0 0 10px rgba(0, 255, 180, 0.5),
+            0 0 30px rgba(0, 255, 180, 0.3);
+            transform: rotateY(180deg);
+            will-change: transform;
+
+        }
+
+        .pfp {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .pfp:hover {
+            transform: scale(1.08);
+        }
+
+
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen flex items-center justify-center p-4 bg-black">
+        <div id="profileCard" class="perspective w-full max-w-sm h-[28rem] cursor-pointer">
+            <div class="card-inner">
+                <div
+                    class="card-face card-face-front bg-black backdrop-blur-lg border border-violet-500/30 rounded-3xl p-6 flex flex-col items-center justify-center text-center">
+                    <img src="eye.svg" alt="" />
+                    <h2 class="text-2xl tracking-widest text-violet-300 uppercase">
+                        Unlock the Profile
+                    </h2>
+                    <p class="text-violet-400/70 mt-2 text-sm">
+                        Click anywhere to reveal
+                    </p>
+                </div>
+                <div
+                    class="card-face card-face-back bg-grey border border-violet-500/30 rounded-3xl p-6 flex flex-col items-center justify-center text-center">
+                    <img src="profile.jpg" alt="Profile"
+                        class="pfp w-24 h-24 rounded-full border-2 border-violet-400 mb-4" />
+                    <h2 class="text-2xl text-violet-300">Aadi Somaiya</h2>
+                    <p class="text-violet-400/70 mt-2 text-sm">
+                        Aspiring Product Manager | Music Enthusiast
+                    </p>
+                    <div class="flex gap-4 mt-4 pt-5">
+                        <a href="https://www.linkedin.com/in/aadi-somaiya/" target="_blank"
+                            class="bg-blue-600 hover:bg-blue-700 transition-colors px-4 py-2 rounded-lg text-white text-sm">
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com" target="_blank"
+                            class="bg-gray-800 hover:bg-gray-900 transition-colors px-4 py-2 rounded-lg text-white text-sm">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const profileCard = document.getElementById("profileCard");
+        const cardInner = profileCard.querySelector(".card-inner");
+
+        profileCard.addEventListener("click", () => {
+            cardInner.classList.toggle("flipped");
+        });
+    </script>
+</body>
+
+</html>

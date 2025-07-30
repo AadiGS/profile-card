@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Eye Shape -->
+  <path d="M20 100 Q100 20 180 100 Q100 180 20 100 Z" 
+        fill="none" 
+        stroke="#b88bff" 
+        stroke-width="3"/>
+
+  <!-- Inner Circle (Pupil) -->
+  <circle cx="100" cy="100" r="20" 
+          fill="none" 
+          stroke="#b88bff" 
+          stroke-width="3"/>
+
+  <!-- Tick Marks -->
+  <line x1="70" y1="70" x2="75" y2="75" stroke="#b88bff" stroke-width="3"/>
+  <line x1="130" y1="70" x2="125" y2="75" stroke="#b88bff" stroke-width="3"/>
+  <line x1="70" y1="130" x2="75" y2="125" stroke="#b88bff" stroke-width="3"/>
+  <line x1="130" y1="130" x2="125" y2="125" stroke="#b88bff" stroke-width="3"/>
+</svg>
